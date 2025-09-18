@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوت مشاهدة الإعلانات - كسب USDT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0088cc, #0055a4);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background-color: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header {
+            background: linear-gradient(to right, #0088cc, #00a2e8);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+        
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .back-btn {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 18px;
+        }
+        
+        .balance-container {
+            background-color: #f8f9fa;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .balance-label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .balance-amount {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0088cc;
+        }
+        
+        .ad-container {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .ad-title {
+            font-size: 18px;
+            color: #0088cc;
+            margin-bottom: 15px;
+        }
+        
+        .ad-content {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .ad-image {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .ad-description {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        .watch-ad-btn {
+            background: linear-gradient(to right, #0088cc, #00a2e8);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .watch-ad-btn:hover {
+            background: linear-gradient(to right, #0077b3, #0088cc);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 136, 204, 0.3);
+        }
+        
+        .watch-ad-btn:active {
+            transform: translateY(0);
+        }
+        
+        .watch-ad-btn i {
+            margin-left: 8px;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: #0088cc;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .transaction-history {
+            padding: 20px;
+        }
+        
+        .transaction-title {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #0088cc;
+            font-weight: bold;
+        }
+        
+        .transaction-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .transaction-amount {
+            font-weight: bold;
+            color: #28a745;
+        }
+        
+        .transaction-time {
+            font-size: 12px;
+            color: #999;
+        }
+        
+        .footer {
+            padding: 15px;
+            text-align: center;
+            background-color: #0088cc;
+            color: white;
+            font-size: 12px;
+        }
+        
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #28a745;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1000;
+        }
+        
+        .notification.show {
+            opacity: 1;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background-color: #e0e0e0;
+            border-radius: 3px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(to right, #0088cc, #00a2e8);
+            width: 0%;
+            transition: width 0.5s linear;
+        }
+        
+        .withdraw-section {
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+        }
+        
+        .withdraw-btn {
+            background: linear-gradient(to right, #28a745, #20c997);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .withdraw-btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
+        
+        .withdraw-btn:hover:not(:disabled) {
+            background: linear-gradient(to right, #218838, #1da57a);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(40, 167, 69, 0.3);
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                border-radius: 0;
+            }
+            
+            body {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="#" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+            <h1>بوت مشاهدة الإعلانات</h1>
+            <p>اكسب USDT بمشاهدة الإعلانات</p>
+        </div>
+        
+        <div class="balance-container">
+            <div class="balance-label">رصيدك الحالي</div>
+            <div class="balance-amount">0.00000 USDT</div>
+        </div>
+        
+        <div class="ad-container">
+            <div class="ad-title">إعلان حصري لك</div>
+            <div class="ad-content">
+                <img src="https://via.placeholder.com/250x120/0088cc/ffffff?text=إعلان%20تجاري" alt="إعلان" class="ad-image">
+                <p class="ad-description">هذا الإعلان مقدم من شركة رائدة في مجال التكنولوجيا. شاهد الإعلان بالكامل لتحصل على مكافأتك.</p>
+                <div class="progress-bar">
+                    <div class="progress" id="progressBar"></div>
+                </div>
+                <div id="timer">زمن المشاهدة: 0/30 ثانية</div>
+            </div>
+            <button class="watch-ad-btn" id="watchAdBtn">
+                شاهد الإعلان وكسب 0.00002 USDT <i class="fas fa-play-circle"></i>
+            </button>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-value" id="adsWatched">0</div>
+                <div class="stat-label">الإعلانات المشاهدة</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="totalEarned">0.00000</div>
+                <div class="stat-label">USDT المكتسبة</div>
+            </div>
+        </div>
+        
+        <div class="withdraw-section">
+            <p>الحد الأدنى للسحب: 0.00010 USDT</p>
+            <button class="withdraw-btn" id="withdrawBtn" disabled>سحب الأرباح</button>
+        </div>
+        
+        <div class="transaction-history">
+            <div class="transaction-title">سجل المعاملات</div>
+            <div id="transactionsList">
+                <!-- سيتم إضافة المعاملات هنا عبر JavaScript -->
+            </div>
+        </div>
+        
+        <div class="footer">
+            © 2023 AdBot Telegram. جميع الحقوق محفوظة
+        </div>
+    </div>
+    
+    <div class="notification" id="notification">
+        لقد ربحت 0.00002 USDT بنجاح!
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const watchAdBtn = document.getElementById('watchAdBtn');
+            const balanceAmount = document.querySelector('.balance-amount');
+            const adsWatched = document.getElementById('adsWatched');
+            const totalEarned = document.getElementById('totalEarned');
+            const transactionsList = document.getElementById('transactionsList');
+            const notification = document.getElementById('notification');
+            const progressBar = document.getElementById('progressBar');
+            const timer = document.getElementById('timer');
+            const withdrawBtn = document.getElementById('withdrawBtn');
+            
+            let balance = 0;
+            let adsCount = 0;
+            let earnings = 0;
+            const rewardPerAd = 0.00002;
+            let adInterval;
+            
+            // تحميل البيانات من localStorage إذا كانت موجودة
+            if (localStorage.getItem('adBotBalance')) {
+                balance = parseFloat(localStorage.getItem('adBotBalance'));
+                adsCount = parseInt(localStorage.getItem('adBotAdsCount'));
+                earnings = parseFloat(localStorage.getItem('adBotEarnings'));
+                
+                updateUI();
+            }
+            
+            watchAdBtn.addEventListener('click', function() {
+                // بدء مشاهدة الإعلان
+                startAdView();
+            });
+            
+            withdrawBtn.addEventListener('click', function() {
+                if (balance >= 0.00010) {
+                    withdrawEarnings();
+                }
+            });
+            
+            function startAdView() {
+                // تعطيل الزر أثناء المشاهدة
+                watchAdBtn.disabled = true;
+                watchAdBtn.innerHTML = 'جاري تحميل الإعلان... <i class="fas fa-spinner fa-spin"></i>';
+                
+                // إعادة تعيين شريط التقدم
+                progressBar.style.width = '0%';
+                timer.textContent = 'زمن المشاهدة: 0/30 ثانية';
+                
+                // محاكاة تحميل الإعلان
+                setTimeout(function() {
+                    watchAdBtn.innerHTML = 'جاري عرض الإعلان... <i class="fas fa-eye"></i>';
+                    
+                    let seconds = 0;
+                    const totalSeconds = 30;
+                    
+                    // بدء عداد الوقت
+                    adInterval = setInterval(function() {
+                        seconds++;
+                        const progress = (seconds / totalSeconds) * 100;
+                        progressBar.style.width = progress + '%';
+                        timer.textContent = `زمن المشاهدة: ${seconds}/${totalSeconds} ثانية`;
+                        
+                        if (seconds >= totalSeconds) {
+                            clearInterval(adInterval);
+                            finishAdView();
+                        }
+                    }, 100);
+                }, 2000);
+            }
+            
+            function finishAdView() {
+                // زيادة الرصيد بعد مشاهدة الإعلان
+                balance += rewardPerAd;
+                adsCount++;
+                earnings += rewardPerAd;
+                
+                // حفظ البيانات في localStorage
+                localStorage.setItem('adBotBalance', balance);
+                localStorage.setItem('adBotAdsCount', adsCount);
+                localStorage.setItem('adBotEarnings', earnings);
+                
+                // تحديث واجهة المستخدم
+                updateUI();
+                
+                // إضافة معاملة جديدة إلى السجل
+                addTransaction();
+                
+                // إظهار إشعار النجاح
+                showNotification();
+                
+                // إعادة ضبط زر مشاهدة الإعلان
+                watchAdBtn.disabled = false;
+                watchAdBtn.innerHTML = 'شاهد الإعلان وكسب 0.00002 USDT <i class="fas fa-play-circle"></i>';
+                
+                // إعادة تعيين شريط التقدم والعداد
+                progressBar.style.width = '0%';
+                timer.textContent = 'زمن المشاهدة: 0/30 ثانية';
+            }
+            
+            function updateUI() {
+                balanceAmount.textContent = balance.toFixed(5) + ' USDT';
+                adsWatched.textContent = adsCount;
+                totalEarned.textContent = earnings.toFixed(5);
+                
+                // تفعيل زر السحب إذا كان الرصيد كافياً
+                if (balance >= 0.00010) {
+                    withdrawBtn.disabled = false;
+                } else {
+                    withdrawBtn.disabled = true;
+                }
+            }
+            
+            function addTransaction() {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString('ar-EG');
+                
+                const transactionItem = document.createElement('div');
+                transactionItem.classList.add('transaction-item');
+                transactionItem.innerHTML = `
+                    <div>
+                        <div>مكافأة إعلان</div>
+                        <div class="transaction-time">${timeString}</div>
+                    </div>
+                    <div class="transaction-amount">+${rewardPerAd.toFixed(5)} USDT</div>
+                `;
+                
+                transactionsList.insertBefore(transactionItem, transactionsList.firstChild);
+            }
+            
+            function showNotification() {
+                notification.classList.add('show');
+                
+                setTimeout(function() {
+                    notification.classList.remove('show');
+                }, 3000);
+            }
+            
+            function withdrawEarnings() {
+                if (balance >= 0.00010) {
+                    const withdrawnAmount = balance;
+                    balance = 0;
+                    
+                    // تحديث localStorage
+                    localStorage.setItem('adBotBalance', balance);
+                    updateUI();
+                    
+                    // إضافة معاملة سحب
+                    const now = new Date();
+                    const timeString = now.toLocaleTimeString('ar-EG');
+                    
+                    const transactionItem = document.createElement('div');
+                    transactionItem.classList.add('transaction-item');
+                    transactionItem.innerHTML = `
+                        <div>
+                            <div>سحب رصيد</div>
+                            <div class="transaction-time">${timeString}</div>
+                        </div>
+                        <div class="transaction-amount" style="color: #dc3545;">-${withdrawnAmount.toFixed(5)} USDT</div>
+                    `;
+                    
+                    transactionsList.insertBefore(transactionItem, transactionsList.firstChild);
+                    
+                    // إشعار بالسحب
+                    notification.textContent = `تم سحب ${withdrawnAmount.toFixed(5)} USDT بنجاح!`;
+                    showNotification();
+                }
+            }
+            
+            // إضافة بعض المعاملات الوهمية عند التحميل الأول
+            if (adsCount === 0) {
+                for (let i = 0; i < 3; i++) {
+                    addTransaction();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
