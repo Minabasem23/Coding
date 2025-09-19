@@ -25,7 +25,7 @@
         
         .container {
             width: 100%;
-            max-width: 400px;
+            max-width: 450px;
             background-color: #fff;
             border-radius: 12px;
             overflow: hidden;
@@ -59,6 +59,38 @@
             font-size: 18px;
         }
         
+        .nav {
+            display: flex;
+            background-color: #f0f8ff;
+            border-bottom: 1px solid #cceeff;
+        }
+        
+        .nav-btn {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            color: #0088cc;
+            transition: all 0.3s;
+        }
+        
+        .nav-btn.active {
+            background-color: #0088cc;
+            color: white;
+        }
+        
+        .page {
+            display: none;
+            padding: 20px;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
         .balance-container {
             background-color: #f8f9fa;
             padding: 15px;
@@ -78,8 +110,48 @@
             color: #0088cc;
         }
         
+        .wallet-section {
+            padding: 15px;
+            background-color: #e9f7fe;
+            border-bottom: 1px solid #cceeff;
+        }
+        
+        .wallet-title {
+            font-size: 16px;
+            color: #0088cc;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .wallet-address {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid #cceeff;
+            font-family: monospace;
+            font-size: 12px;
+            margin-bottom: 10px;
+            word-break: break-all;
+        }
+        
+        .wallet-btn {
+            background: #0088cc;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .wallet-btn:hover {
+            background: #006da8;
+        }
+        
         .ad-container {
-            padding: 20px;
             text-align: center;
         }
         
@@ -128,6 +200,8 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            width: 100%;
+            margin-top: 10px;
         }
         
         .watch-ad-btn:hover {
@@ -138,6 +212,11 @@
         
         .watch-ad-btn:active {
             transform: translateY(0);
+        }
+        
+        .watch-ad-btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
         }
         
         .watch-ad-btn i {
@@ -167,8 +246,129 @@
             color: #666;
         }
         
+        .withdraw-section {
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+        }
+        
+        .withdraw-form {
+            margin-top: 15px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+            text-align: right;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .withdraw-btn {
+            background: linear-gradient(to right, #28a745, #20c997);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .withdraw-btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
+        
+        .withdraw-btn:hover:not(:disabled) {
+            background: linear-gradient(to right, #218838, #1da57a);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(40, 167, 69, 0.3);
+        }
+        
+        .invite-section {
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .invite-code {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: monospace;
+            font-size: 18px;
+            font-weight: bold;
+            color: #0088cc;
+        }
+        
+        .invite-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        
+        .invite-stat {
+            text-align: center;
+        }
+        
+        .invite-stat-value {
+            font-size: 20px;
+            font-weight: bold;
+            color: #0088cc;
+        }
+        
+        .invite-stat-label {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .share-btn {
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .share-telegram {
+            background: #0088cc;
+        }
+        
+        .share-whatsapp {
+            background: #25D366;
+        }
+        
+        .share-link {
+            background: #6c757d;
+        }
+        
         .transaction-history {
-            padding: 20px;
+            max-height: 300px;
+            overflow-y: auto;
         }
         
         .transaction-title {
@@ -188,6 +388,10 @@
         .transaction-amount {
             font-weight: bold;
             color: #28a745;
+        }
+        
+        .withdraw-amount {
+            color: #dc3545;
         }
         
         .transaction-time {
@@ -238,34 +442,71 @@
             transition: width 0.5s linear;
         }
         
-        .withdraw-section {
-            padding: 15px;
-            background-color: #f8f9fa;
-            border-top: 1px solid #e0e0e0;
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .modal-title {
+            font-size: 18px;
+            color: #0088cc;
+            margin-bottom: 15px;
             text-align: center;
         }
         
-        .withdraw-btn {
-            background: linear-gradient(to right, #28a745, #20c997);
-            color: white;
-            border: none;
+        .modal-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-family: monospace;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .modal-btn {
             padding: 10px 20px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: bold;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
-            transition: all 0.3s;
         }
         
-        .withdraw-btn:disabled {
-            background: #cccccc;
-            cursor: not-allowed;
+        .modal-btn.cancel {
+            background-color: #f8f9fa;
+            color: #333;
         }
         
-        .withdraw-btn:hover:not(:disabled) {
-            background: linear-gradient(to right, #218838, #1da57a);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 10px rgba(40, 167, 69, 0.3);
+        .modal-btn.confirm {
+            background-color: #0088cc;
+            color: white;
+        }
+        
+        .limit-info {
+            text-align: center;
+            margin: 10px 0;
+            color: #666;
+            font-size: 14px;
         }
         
         @media (max-width: 480px) {
@@ -292,41 +533,114 @@
             <div class="balance-amount">0.00000 USDT</div>
         </div>
         
-        <div class="ad-container">
-            <div class="ad-title">إعلان حصري لك</div>
-            <div class="ad-content">
-                <img src="https://via.placeholder.com/250x120/0088cc/ffffff?text=إعلان%20تجاري" alt="إعلان" class="ad-image">
-                <p class="ad-description">هذا الإعلان مقدم من شركة رائدة في مجال التكنولوجيا. شاهد الإعلان بالكامل لتحصل على مكافأتك.</p>
-                <div class="progress-bar">
-                    <div class="progress" id="progressBar"></div>
+        <div class="wallet-section">
+            <div class="wallet-title">
+                <span>عنوان محفظة USDT (BSC)</span>
+                <button class="wallet-btn" id="editWalletBtn">تعديل</button>
+            </div>
+            <div class="wallet-address" id="walletAddress">لم يتم إضافة عنوان محفظة</div>
+            <div style="font-size: 12px; color: #666;">سيتم إرسال الأرباح إلى هذا العنوان عند السحب</div>
+        </div>
+        
+        <div class="nav">
+            <button class="nav-btn active" data-page="ads">الإعلانات</button>
+            <button class="nav-btn" data-page="withdraw">السحب</button>
+            <button class="nav-btn" data-page="invite">الدعوة</button>
+        </div>
+        
+        <div class="page active" id="ads-page">
+            <div class="ad-container">
+                <div class="ad-title">إعلان حصري لك</div>
+                <div class="ad-content">
+                    <img src="https://via.placeholder.com/250x120/0088cc/ffffff?text=إعلان%20تجاري" alt="إعلان" class="ad-image">
+                    <p class="ad-description">هذا الإعلان مقدم من شركة رائدة في مجال التكنولوجيا. شاهد الإعلان بالكامل لتحصل على مكافأتك.</p>
+                    <div class="progress-bar">
+                        <div class="progress" id="progressBar"></div>
+                    </div>
+                    <div id="timer">زمن المشاهدة: 0/30 ثانية</div>
                 </div>
-                <div id="timer">زمن المشاهدة: 0/30 ثانية</div>
+                <button class="watch-ad-btn" id="watchAdBtn">
+                    شاهد الإعلان وكسب 0.0002 USDT <i class="fas fa-play-circle"></i>
+                </button>
+                <div class="limit-info" id="adsLimit">متبقي اليوم: 250/250 مشاهدة</div>
             </div>
-            <button class="watch-ad-btn" id="watchAdBtn">
-                شاهد الإعلان وكسب 0.00002 USDT <i class="fas fa-play-circle"></i>
-            </button>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-value" id="adsWatched">0</div>
+                    <div class="stat-label">الإعلانات المشاهدة</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="totalEarned">0.00000</div>
+                    <div class="stat-label">USDT المكتسبة</div>
+                </div>
+            </div>
+            
+            <div class="transaction-history">
+                <div class="transaction-title">سجل المعاملات</div>
+                <div id="transactionsList">
+                    <!-- سيتم إضافة المعاملات هنا عبر JavaScript -->
+                </div>
+            </div>
         </div>
         
-        <div class="stats">
-            <div class="stat-item">
-                <div class="stat-value" id="adsWatched">0</div>
-                <div class="stat-label">الإعلانات المشاهدة</div>
+        <div class="page" id="withdraw-page">
+            <div class="withdraw-section">
+                <h2>سحب الأرباح</h2>
+                <p>الحد الأدنى للسحب: 0.1 USDT</p>
+                
+                <div class="withdraw-form">
+                    <div class="form-group">
+                        <label class="form-label">المبلغ المطلوب سحبه (USDT)</label>
+                        <input type="number" class="form-input" id="withdrawAmount" placeholder="أدخل المبلغ" step="0.0001" min="0.1">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">عنوان المحفظة</label>
+                        <div class="wallet-address" id="withdrawWalletAddress">لم يتم إضافة عنوان محفظة</div>
+                    </div>
+                    
+                    <button class="withdraw-btn" id="withdrawBtn" disabled>طلب السحب</button>
+                </div>
             </div>
-            <div class="stat-item">
-                <div class="stat-value" id="totalEarned">0.00000</div>
-                <div class="stat-label">USDT المكتسبة</div>
+            
+            <div class="transaction-history">
+                <div class="transaction-title">سجل عمليات السحب</div>
+                <div id="withdrawalsList">
+                    <!-- سيتم إضافة عمليات السحب هنا عبر JavaScript -->
+                </div>
             </div>
         </div>
         
-        <div class="withdraw-section">
-            <p>الحد الأدنى للسحب: 0.00010 USDT</p>
-            <button class="withdraw-btn" id="withdrawBtn" disabled>سحب الأرباح</button>
-        </div>
-        
-        <div class="transaction-history">
-            <div class="transaction-title">سجل المعاملات</div>
-            <div id="transactionsList">
-                <!-- سيتم إضافة المعاملات هنا عبر JavaScript -->
+        <div class="page" id="invite-page">
+            <div class="invite-section">
+                <h2>دعوة الأصدقاء</h2>
+                <p>ادعُ أصدقاءك واحصل على 10% من أرباحهم</p>
+                
+                <div class="invite-code" id="inviteCode">ABCD1234</div>
+                
+                <div class="invite-stats">
+                    <div class="invite-stat">
+                        <div class="invite-stat-value" id="invitedCount">0</div>
+                        <div class="invite-stat-label">أصدقاء مدعوين</div>
+                    </div>
+                    <div class="invite-stat">
+                        <div class="invite-stat-value" id="referralEarnings">0.0000</div>
+                        <div class="invite-stat-label">أرباح من الدعوة</div>
+                    </div>
+                </div>
+                
+                <div class="share-buttons">
+                    <button class="share-btn share-telegram" id="shareTelegram">
+                        <i class="fab fa-telegram"></i> Telegram
+                    </button>
+                    <button class="share-btn share-whatsapp" id="shareWhatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </button>
+                    <button class="share-btn share-link" id="copyLink">
+                        <i class="fas fa-link"></i> نسخ الرابط
+                    </button>
+                </div>
             </div>
         </div>
         
@@ -336,25 +650,59 @@
     </div>
     
     <div class="notification" id="notification">
-        لقد ربحت 0.00002 USDT بنجاح!
+        لقد ربحت 0.0002 USDT بنجاح!
+    </div>
+    
+    <div class="modal" id="walletModal">
+        <div class="modal-content">
+            <div class="modal-title">إضافة عنوان محفظة USDT (BSC)</div>
+            <input type="text" class="modal-input" id="walletInput" placeholder="أدخل عنوان محفظتك BEP-20">
+            <div class="modal-buttons">
+                <button class="modal-btn cancel" id="cancelWalletBtn">إلغاء</button>
+                <button class="modal-btn confirm" id="saveWalletBtn">حفظ</button>
+            </div>
+        </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // العناصر الرئيسية
+            const navBtns = document.querySelectorAll('.nav-btn');
+            const pages = document.querySelectorAll('.page');
             const watchAdBtn = document.getElementById('watchAdBtn');
             const balanceAmount = document.querySelector('.balance-amount');
             const adsWatched = document.getElementById('adsWatched');
             const totalEarned = document.getElementById('totalEarned');
             const transactionsList = document.getElementById('transactionsList');
+            const withdrawalsList = document.getElementById('withdrawalsList');
             const notification = document.getElementById('notification');
             const progressBar = document.getElementById('progressBar');
             const timer = document.getElementById('timer');
             const withdrawBtn = document.getElementById('withdrawBtn');
+            const withdrawAmount = document.getElementById('withdrawAmount');
+            const walletAddress = document.getElementById('walletAddress');
+            const withdrawWalletAddress = document.getElementById('withdrawWalletAddress');
+            const editWalletBtn = document.getElementById('editWalletBtn');
+            const walletModal = document.getElementById('walletModal');
+            const walletInput = document.getElementById('walletInput');
+            const cancelWalletBtn = document.getElementById('cancelWalletBtn');
+            const saveWalletBtn = document.getElementById('saveWalletBtn');
+            const adsLimit = document.getElementById('adsLimit');
+            const inviteCode = document.getElementById('inviteCode');
+            const invitedCount = document.getElementById('invitedCount');
+            const referralEarnings = document.getElementById('referralEarnings');
+            const shareTelegram = document.getElementById('shareTelegram');
+            const shareWhatsapp = document.getElementById('shareWhatsapp');
+            const copyLink = document.getElementById('copyLink');
             
+            // البيانات
             let balance = 0;
             let adsCount = 0;
             let earnings = 0;
-            const rewardPerAd = 0.00002;
+            let adsWatchedToday = 0;
+            const dailyAdsLimit = 250;
+            const rewardPerAd = 0.0002;
+            const minWithdrawal = 0.1;
             let adInterval;
             
             // تحميل البيانات من localStorage إذا كانت موجودة
@@ -362,19 +710,123 @@
                 balance = parseFloat(localStorage.getItem('adBotBalance'));
                 adsCount = parseInt(localStorage.getItem('adBotAdsCount'));
                 earnings = parseFloat(localStorage.getItem('adBotEarnings'));
+                adsWatchedToday = parseInt(localStorage.getItem('adsWatchedToday')) || 0;
+                
+                // تحميل عنوان المحفظة إذا كان محفوظاً
+                const savedWallet = localStorage.getItem('userWallet');
+                if (savedWallet) {
+                    walletAddress.textContent = savedWallet;
+                    withdrawWalletAddress.textContent = savedWallet;
+                }
+                
+                // تحميل بيانات الدعوة
+                const savedInviteCode = localStorage.getItem('inviteCode');
+                if (savedInviteCode) {
+                    inviteCode.textContent = savedInviteCode;
+                }
+                
+                const savedInvitedCount = localStorage.getItem('invitedCount');
+                if (savedInvitedCount) {
+                    invitedCount.textContent = savedInvitedCount;
+                }
+                
+                const savedReferralEarnings = localStorage.getItem('referralEarnings');
+                if (savedReferralEarnings) {
+                    referralEarnings.textContent = parseFloat(savedReferralEarnings).toFixed(4);
+                }
                 
                 updateUI();
+            } else {
+                // إنشاء رمز دعوة عشوائي إذا لم يكن موجوداً
+                generateInviteCode();
             }
             
+            // التنقل بين الصفحات
+            navBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const targetPage = this.getAttribute('data-page');
+                    
+                    // إزالة النشاط من جميع الأزرار
+                    navBtns.forEach(b => b.classList.remove('active'));
+                    // إضافة النشاط للزر الحالي
+                    this.classList.add('active');
+                    
+                    // إخفاء جميع الصفحات
+                    pages.forEach(page => page.classList.remove('active'));
+                    // إظهار الصفحة المستهدفة
+                    document.getElementById(`${targetPage}-page`).classList.add('active');
+                });
+            });
+            
+            // مشاهدة الإعلان
             watchAdBtn.addEventListener('click', function() {
+                if (adsWatchedToday >= dailyAdsLimit) {
+                    showNotification("لقد وصلت إلى الحد الأقصى لمشاهدات اليوم!");
+                    return;
+                }
+                
                 // بدء مشاهدة الإعلان
                 startAdView();
             });
             
-            withdrawBtn.addEventListener('click', function() {
-                if (balance >= 0.00010) {
-                    withdrawEarnings();
+            // إدخال مبلغ السحب
+            withdrawAmount.addEventListener('input', function() {
+                const amount = parseFloat(this.value);
+                
+                if (isNaN(amount) || amount < minWithdrawal || amount > balance) {
+                    withdrawBtn.disabled = true;
+                } else {
+                    withdrawBtn.disabled = false;
                 }
+            });
+            
+            // طلب السحب
+            withdrawBtn.addEventListener('click', function() {
+                const amount = parseFloat(withdrawAmount.value);
+                
+                if (amount >= minWithdrawal && amount <= balance && walletAddress.textContent !== 'لم يتم إضافة عنوان محفظة') {
+                    withdrawEarnings(amount);
+                } else if (walletAddress.textContent === 'لم يتم إضافة عنوان محفظة') {
+                    showNotification("يرجى إضافة عنوان المحفظة أولاً!");
+                }
+            });
+            
+            // تعديل عنوان المحفظة
+            editWalletBtn.addEventListener('click', function() {
+                walletInput.value = walletAddress.textContent !== 'لم يتم إضافة عنوان محفظة' ? 
+                                  walletAddress.textContent : '';
+                walletModal.style.display = 'flex';
+            });
+            
+            cancelWalletBtn.addEventListener('click', function() {
+                walletModal.style.display = 'none';
+            });
+            
+            saveWalletBtn.addEventListener('click', function() {
+                const address = walletInput.value.trim();
+                if (address && isValidBSCAddress(address)) {
+                    walletAddress.textContent = address;
+                    withdrawWalletAddress.textContent = address;
+                    localStorage.setItem('userWallet', address);
+                    walletModal.style.display = 'none';
+                    showNotification("تم حفظ عنوان المحفظة بنجاح!");
+                } else {
+                    showNotification("يرجى إدخال عنوان محفظة BSC صحيح!");
+                }
+            });
+            
+            // مشاركة رابط الدعوة
+            shareTelegram.addEventListener('click', function() {
+                shareInvite('telegram');
+            });
+            
+            shareWhatsapp.addEventListener('click', function() {
+                shareInvite('whatsapp');
+            });
+            
+            copyLink.addEventListener('click', function() {
+                copyToClipboard(`https://t.me/yourbottoken?start=${inviteCode.textContent}`);
+                showNotification("تم نسخ رابط الدعوة!");
             });
             
             function startAdView() {
@@ -413,24 +865,26 @@
                 balance += rewardPerAd;
                 adsCount++;
                 earnings += rewardPerAd;
+                adsWatchedToday++;
                 
                 // حفظ البيانات في localStorage
                 localStorage.setItem('adBotBalance', balance);
                 localStorage.setItem('adBotAdsCount', adsCount);
                 localStorage.setItem('adBotEarnings', earnings);
+                localStorage.setItem('adsWatchedToday', adsWatchedToday);
                 
                 // تحديث واجهة المستخدم
                 updateUI();
                 
                 // إضافة معاملة جديدة إلى السجل
-                addTransaction();
+                addTransaction('earning', rewardPerAd, 'مكافأة إعلان');
                 
                 // إظهار إشعار النجاح
-                showNotification();
+                showNotification(`لقد ربحت ${rewardPerAd} USDT بنجاح!`);
                 
                 // إعادة ضبط زر مشاهدة الإعلان
                 watchAdBtn.disabled = false;
-                watchAdBtn.innerHTML = 'شاهد الإعلان وكسب 0.00002 USDT <i class="fas fa-play-circle"></i>';
+                watchAdBtn.innerHTML = `شاهد الإعلان وكسب ${rewardPerAd} USDT <i class="fas fa-play-circle"></i>`;
                 
                 // إعادة تعيين شريط التقدم والعداد
                 progressBar.style.width = '0%';
@@ -441,33 +895,46 @@
                 balanceAmount.textContent = balance.toFixed(5) + ' USDT';
                 adsWatched.textContent = adsCount;
                 totalEarned.textContent = earnings.toFixed(5);
+                adsLimit.textContent = `متبقي اليوم: ${dailyAdsLimit - adsWatchedToday}/${dailyAdsLimit} مشاهدة`;
                 
-                // تفعيل زر السحب إذا كان الرصيد كافياً
-                if (balance >= 0.00010) {
-                    withdrawBtn.disabled = false;
-                } else {
-                    withdrawBtn.disabled = true;
+                // تعطيل زر مشاهدة الإعلان إذا وصل للحد اليومي
+                if (adsWatchedToday >= dailyAdsLimit) {
+                    watchAdBtn.disabled = true;
+                    watchAdBtn.innerHTML = 'وصلت للحد اليومي <i class="fas fa-ban"></i>';
                 }
             }
             
-            function addTransaction() {
+            function addTransaction(type, amount, description) {
                 const now = new Date();
                 const timeString = now.toLocaleTimeString('ar-EG');
+                const dateString = now.toLocaleDateString('ar-EG');
                 
                 const transactionItem = document.createElement('div');
                 transactionItem.classList.add('transaction-item');
-                transactionItem.innerHTML = `
-                    <div>
-                        <div>مكافأة إعلان</div>
-                        <div class="transaction-time">${timeString}</div>
-                    </div>
-                    <div class="transaction-amount">+${rewardPerAd.toFixed(5)} USDT</div>
-                `;
                 
-                transactionsList.insertBefore(transactionItem, transactionsList.firstChild);
+                if (type === 'earning') {
+                    transactionItem.innerHTML = `
+                        <div>
+                            <div>${description}</div>
+                            <div class="transaction-time">${dateString} ${timeString}</div>
+                        </div>
+                        <div class="transaction-amount">+${amount.toFixed(5)} USDT</div>
+                    `;
+                    transactionsList.insertBefore(transactionItem, transactionsList.firstChild);
+                } else if (type === 'withdrawal') {
+                    transactionItem.innerHTML = `
+                        <div>
+                            <div>${description}</div>
+                            <div class="transaction-time">${dateString} ${timeString}</div>
+                        </div>
+                        <div class="transaction-amount withdraw-amount">-${amount.toFixed(5)} USDT</div>
+                    `;
+                    withdrawalsList.insertBefore(transactionItem, withdrawalsList.firstChild);
+                }
             }
             
-            function showNotification() {
+            function showNotification(message) {
+                notification.textContent = message;
                 notification.classList.add('show');
                 
                 setTimeout(function() {
@@ -475,41 +942,70 @@
                 }, 3000);
             }
             
-            function withdrawEarnings() {
-                if (balance >= 0.00010) {
-                    const withdrawnAmount = balance;
-                    balance = 0;
+            function withdrawEarnings(amount) {
+                if (amount >= minWithdrawal && amount <= balance && walletAddress.textContent !== 'لم يتم إضافة عنوان محفظة') {
+                    balance -= amount;
                     
                     // تحديث localStorage
                     localStorage.setItem('adBotBalance', balance);
                     updateUI();
                     
                     // إضافة معاملة سحب
-                    const now = new Date();
-                    const timeString = now.toLocaleTimeString('ar-EG');
-                    
-                    const transactionItem = document.createElement('div');
-                    transactionItem.classList.add('transaction-item');
-                    transactionItem.innerHTML = `
-                        <div>
-                            <div>سحب رصيد</div>
-                            <div class="transaction-time">${timeString}</div>
-                        </div>
-                        <div class="transaction-amount" style="color: #dc3545;">-${withdrawnAmount.toFixed(5)} USDT</div>
-                    `;
-                    
-                    transactionsList.insertBefore(transactionItem, transactionsList.firstChild);
+                    addTransaction('withdrawal', amount, 'سحب إلى المحفظة');
                     
                     // إشعار بالسحب
-                    notification.textContent = `تم سحب ${withdrawnAmount.toFixed(5)} USDT بنجاح!`;
-                    showNotification();
+                    showNotification(`تم تقديم طلب سحب ${amount.toFixed(5)} USDT إلى محفظتك!`);
+                    
+                    // إعادة تعيين حقل السحب
+                    withdrawAmount.value = '';
+                    withdrawBtn.disabled = true;
+                } else if (walletAddress.textContent === 'لم يتم إضافة عنوان محفظة') {
+                    showNotification("يرجى إضافة عنوان المحفظة أولاً!");
                 }
+            }
+            
+            function generateInviteCode() {
+                const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+                let code = '';
+                for (let i = 0; i < 8; i++) {
+                    code += chars.charAt(Math.floor(Math.random() * chars.length));
+                }
+                
+                inviteCode.textContent = code;
+                localStorage.setItem('inviteCode', code);
+            }
+            
+            function shareInvite(platform) {
+                const message = `انضم إلى بوت مشاهدة الإعلانات وكسب USDT! استخدم رمز الدعوة: ${inviteCode.textContent}\nhttps://t.me/yourbottoken?start=${inviteCode.textContent}`;
+                
+                let url = '';
+                if (platform === 'telegram') {
+                    url = `https://t.me/share/url?url=${encodeURIComponent(`https://t.me/yourbottoken?start=${inviteCode.textContent}`)}&text=${encodeURIComponent(`انضم إلى بوت مشاهدة الإعلانات وكسب USDT! استخدم رمز الدعوة: ${inviteCode.textContent}`)}`;
+                } else if (platform === 'whatsapp') {
+                    url = `https://wa.me/?text=${encodeURIComponent(message)}`;
+                }
+                
+                window.open(url, '_blank');
+            }
+            
+            function copyToClipboard(text) {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+            }
+            
+            function isValidBSCAddress(address) {
+                // تحقق بسيط من عنوان BSC (عنوان Ethereum)
+                return /^0x[a-fA-F0-9]{40}$/.test(address);
             }
             
             // إضافة بعض المعاملات الوهمية عند التحميل الأول
             if (adsCount === 0) {
                 for (let i = 0; i < 3; i++) {
-                    addTransaction();
+                    addTransaction('earning', rewardPerAd, 'مكافأة إعلان');
                 }
             }
         });
